@@ -36,6 +36,7 @@ namespace TorHelper
             this.lbl_port = new System.Windows.Forms.Label();
             this.txt_port = new System.Windows.Forms.TextBox();
             this.txt_log = new System.Windows.Forms.TextBox();
+            this.chb_snowflake = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btn_start
@@ -103,11 +104,23 @@ namespace TorHelper
             this.txt_log.Size = new System.Drawing.Size(280, 130);
             this.txt_log.TabIndex = 5;
             // 
+            // chb_snowflake
+            // 
+            this.chb_snowflake.AutoSize = true;
+            this.chb_snowflake.Location = new System.Drawing.Point(26, 104);
+            this.chb_snowflake.Name = "chb_snowflake";
+            this.chb_snowflake.Size = new System.Drawing.Size(122, 17);
+            this.chb_snowflake.TabIndex = 6;
+            this.chb_snowflake.Text = "运行snowflake网桥";
+            this.chb_snowflake.UseVisualStyleBackColor = true;
+            this.chb_snowflake.CheckedChanged += new System.EventHandler(this.chb_snowflake_CheckedChanged);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(345, 344);
+            this.Controls.Add(this.chb_snowflake);
             this.Controls.Add(this.txt_log);
             this.Controls.Add(this.txt_port);
             this.Controls.Add(this.lbl_port);
@@ -132,6 +145,7 @@ namespace TorHelper
         private System.Windows.Forms.Label lbl_port;
         private System.Windows.Forms.TextBox txt_port;
         private System.Windows.Forms.TextBox txt_log;
+        private System.Windows.Forms.CheckBox chb_snowflake;
     }
 }
 

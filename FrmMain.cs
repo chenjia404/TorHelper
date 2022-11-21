@@ -39,7 +39,7 @@ namespace TorHelper
                 "GeoIPv6File Data/Tor/geoip/geoip6\n" +
                 "AvoidDiskWrites 1\n"
                 ;
-            if(cmb_network_type.SelectedItem == "snowflake")
+            if(cmb_network_type.SelectedItem.ToString() == "snowflake")
             {
                 torcc_str += "UseBridges 1\n" +
                     "Bridge snowflake 192.0.2.3:80 2B280B23E1107BB62ABFC40DDCC8824814F80A72 fingerprint=2B280B23E1107BB62ABFC40DDCC8824814F80A72 url=https://snowflake-broker.torproject.net.global.prod.fastly.net/ front=cdn.sstatic.net ice=stun:stun.l.google.com:19302,stun:stun.altar.com.pl:3478,stun:stun.antisip.com:3478,stun:stun.bluesip.net:3478,stun:stun.dus.net:3478,stun:stun.epygi.com:3478,stun:stun.sonetel.com:3478,stun:stun.sonetel.net:3478,stun:stun.stunprotocol.org:3478,stun:stun.uls.co.za:3478,stun:stun.voipgate.com:3478,stun:stun.voys.nl:3478 utls-imitate=hellorandomizedalpn\n" +
@@ -125,7 +125,44 @@ namespace TorHelper
         private void FrmMain_Load(object sender, EventArgs e)
         {
             cmb_network_type.SelectedIndex = 1;
-            
+            if (!File.Exists(@"tor\tor.exe"))
+            {
+                txt_log.AppendText("没有找到tor程序，请去这里下载  https://www.torproject.org/download/tor/");
+                txt_log.AppendText(Environment.NewLine);
+            }
+        }
+
+        Process process_snow;
+        private void chb_snowflake_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!File.Exists(@"tor\proxy.exe"))
+            {
+                txt_log.AppendText("没有找到snowflake程序");
+                txt_log.AppendText(Environment.NewLine);
+                return;
+            }
+            if (chb_snowflake.Checked)
+            {
+                process_snow = new Process();
+                process_snow.StartInfo.FileName = "./tor/proxy.exe";
+                process_snow.StartInfo.UseShellExecute = false;    //是否使用操作系统shell启动
+                process_snow.StartInfo.RedirectStandardInput = true;//接受来自调用程序的输入信息
+                process_snow.StartInfo.RedirectStandardOutput = true;//由调用程序获取输出信息
+                process_snow.StartInfo.RedirectStandardError = true;//重定向标准错误输出
+                process_snow.StartInfo.CreateNoWindow = true;//不显示程序窗口
+
+                process_snow.OutputDataReceived += OnDataReceived;
+
+                process_snow.Start();//启动程序
+                process_snow.BeginOutputReadLine();
+                process_snow.StandardInput.AutoFlush = true;
+                txt_log.AppendText("启动snowflake");
+                txt_log.AppendText(Environment.NewLine);
+            }
+            else
+            {
+                process_snow.Kill();
+            }
         }
     }
 }
