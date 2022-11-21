@@ -23,7 +23,7 @@ namespace TorHelper
 
         Process process_tor;
 
-        private void btn_start_Click(object sender, EventArgs e)
+        private void Btn_start_Click(object sender, EventArgs e)
         {
             Process[] pa = Process.GetProcesses();//获取当前进程数组。
             foreach (Process PTest in pa)
@@ -137,7 +137,7 @@ namespace TorHelper
             }
         }
 
-        private void btn_stop_Click(object sender, EventArgs e)
+        private void Btn_stop_Click(object sender, EventArgs e)
         {
             process_tor.Kill();
         }
@@ -153,7 +153,7 @@ namespace TorHelper
         }
 
         Process process_snow;
-        private void chb_snowflake_CheckedChanged(object sender, EventArgs e)
+        private void Chb_snowflake_CheckedChanged(object sender, EventArgs e)
         {
             if (!File.Exists(@"tor\proxy.exe"))
             {
@@ -185,17 +185,17 @@ namespace TorHelper
             }
         }
 
-        private void txt_port_TextChanged(object sender, EventArgs e)
+        private void Txt_port_TextChanged(object sender, EventArgs e)
         {
             config.Writue("proxy", "port", txt_port.Text);
         }
 
-        private void cmb_network_type_SelectedIndexChanged(object sender, EventArgs e)
+        private void Cmb_network_type_SelectedIndexChanged(object sender, EventArgs e)
         {
             config.Writue("proxy", "network_type", cmb_network_type.SelectedText);
         }
 
-        private void llbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Llbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/chenjia404/TorHelper");
         }

@@ -48,7 +48,7 @@ namespace TorHelper
             this.btn_start.TabIndex = 0;
             this.btn_start.Text = "启动";
             this.btn_start.UseVisualStyleBackColor = true;
-            this.btn_start.Click += new System.EventHandler(this.btn_start_Click);
+            this.btn_start.Click += new System.EventHandler(this.Btn_start_Click);
             // 
             // btn_stop
             // 
@@ -58,7 +58,7 @@ namespace TorHelper
             this.btn_stop.TabIndex = 0;
             this.btn_stop.Text = "停止";
             this.btn_stop.UseVisualStyleBackColor = true;
-            this.btn_stop.Click += new System.EventHandler(this.btn_stop_Click);
+            this.btn_stop.Click += new System.EventHandler(this.Btn_stop_Click);
             // 
             // lbl_network_type
             // 
@@ -79,7 +79,7 @@ namespace TorHelper
             this.cmb_network_type.Name = "cmb_network_type";
             this.cmb_network_type.Size = new System.Drawing.Size(121, 21);
             this.cmb_network_type.TabIndex = 2;
-            this.cmb_network_type.SelectedIndexChanged += new System.EventHandler(this.cmb_network_type_SelectedIndexChanged);
+            this.cmb_network_type.SelectedIndexChanged += new System.EventHandler(this.Cmb_network_type_SelectedIndexChanged);
             // 
             // lbl_port
             // 
@@ -97,7 +97,7 @@ namespace TorHelper
             this.txt_port.Size = new System.Drawing.Size(100, 20);
             this.txt_port.TabIndex = 4;
             this.txt_port.Text = "9050";
-            this.txt_port.TextChanged += new System.EventHandler(this.txt_port_TextChanged);
+            this.txt_port.TextChanged += new System.EventHandler(this.Txt_port_TextChanged);
             // 
             // txt_log
             // 
@@ -116,7 +116,7 @@ namespace TorHelper
             this.chb_snowflake.TabIndex = 6;
             this.chb_snowflake.Text = "运行snowflake网桥";
             this.chb_snowflake.UseVisualStyleBackColor = true;
-            this.chb_snowflake.CheckedChanged += new System.EventHandler(this.chb_snowflake_CheckedChanged);
+            this.chb_snowflake.CheckedChanged += new System.EventHandler(this.Chb_snowflake_CheckedChanged);
             // 
             // llbl
             // 
@@ -127,7 +127,7 @@ namespace TorHelper
             this.llbl.TabIndex = 7;
             this.llbl.TabStop = true;
             this.llbl.Text = "主页";
-            this.llbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbl_LinkClicked);
+            this.llbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Llbl_LinkClicked);
             // 
             // FrmMain
             // 
