@@ -15,7 +15,7 @@ tor 下载链接：https://www.torproject.org/download/tor/
 
 snowflake-client.exe 来自tor浏览器
 
-tor/proxy.exe 来自 https://git.torproject.org/pluggable-transports/snowflake.git
+tor/proxy.exe 来自 https://git.torproject.org/pluggable-transports/snowflake.git ，是 snowflake 中继。
 
 
 ![界面预览](gui.png)

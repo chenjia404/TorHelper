@@ -14,6 +14,8 @@ namespace TorHelper
 {
     public partial class FrmMain : Form
     {
+        private INI config;
+
         public FrmMain()
         {
             InitializeComponent();
@@ -24,7 +26,6 @@ namespace TorHelper
         private void btn_start_Click(object sender, EventArgs e)
         {
             Process[] pa = Process.GetProcesses();//获取当前进程数组。
-            int proc_amount = 0;
             foreach (Process PTest in pa)
             {
                 //关闭之前的进程
@@ -65,6 +66,25 @@ namespace TorHelper
             process_tor.Start();//启动程序
             process_tor.BeginOutputReadLine();
             process_tor.StandardInput.AutoFlush = true;
+        }
+
+        public void LoadConfig()
+        {
+            #region 配置文件
+
+            //不存在就创建
+            if (!File.Exists(Application.StartupPath + @"\config.ini"))
+                System.IO.File.WriteAllLines(Application.StartupPath + @"\config.ini", new string[0]);
+
+            if (File.Exists(Application.StartupPath + @"\config.ini"))
+            {
+                this.config = new INI(Application.StartupPath + @"\config.ini");
+
+
+                string net_port = config.ReadValue("proxy", "port");
+                txt_port.Text = net_port;
+            }
+            #endregion
         }
 
         /// <summary>
@@ -163,6 +183,21 @@ namespace TorHelper
             {
                 process_snow.Kill();
             }
+        }
+
+        private void txt_port_TextChanged(object sender, EventArgs e)
+        {
+            config.Writue("proxy", "port", txt_port.Text);
+        }
+
+        private void cmb_network_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            config.Writue("proxy", "network_type", cmb_network_type.SelectedText);
+        }
+
+        private void llbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/chenjia404/TorHelper");
         }
     }
 }
