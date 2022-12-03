@@ -82,7 +82,8 @@ namespace TorHelper
 
 
                 string net_port = config.ReadValue("proxy", "port");
-                txt_port.Text = net_port;
+                if(net_port.Length > 0)
+                    txt_port.Text = net_port;
             }
             #endregion
         }
@@ -144,6 +145,7 @@ namespace TorHelper
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            LoadConfig();
             cmb_network_type.SelectedIndex = 1;
             if (!File.Exists(@"tor\tor.exe"))
             {
