@@ -20,6 +20,8 @@ tor/proxy.exe 来自 https://git.torproject.org/pluggable-transports/snowflake.g
 
 ![界面预览](gui.png)
 
+chrome浏览器推荐使用[Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif) 针对不同网站使用不用的代理策略。
+
 
 ## todo
 
