@@ -38,6 +38,7 @@ namespace TorHelper
             this.txt_log = new System.Windows.Forms.TextBox();
             this.chb_snowflake = new System.Windows.Forms.CheckBox();
             this.llbl = new System.Windows.Forms.LinkLabel();
+            this.lbl_tor = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // btn_start
@@ -92,7 +93,7 @@ namespace TorHelper
             // 
             // txt_port
             // 
-            this.txt_port.Location = new System.Drawing.Point(88, 68);
+            this.txt_port.Location = new System.Drawing.Point(86, 68);
             this.txt_port.Name = "txt_port";
             this.txt_port.Size = new System.Drawing.Size(100, 20);
             this.txt_port.TabIndex = 4;
@@ -129,11 +130,23 @@ namespace TorHelper
             this.llbl.Text = "主页";
             this.llbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Llbl_LinkClicked);
             // 
+            // lbl_tor
+            // 
+            this.lbl_tor.AutoSize = true;
+            this.lbl_tor.Location = new System.Drawing.Point(81, 319);
+            this.lbl_tor.Name = "lbl_tor";
+            this.lbl_tor.Size = new System.Drawing.Size(19, 13);
+            this.lbl_tor.TabIndex = 7;
+            this.lbl_tor.TabStop = true;
+            this.lbl_tor.Text = "tor";
+            this.lbl_tor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbl_tor_LinkClicked);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(345, 344);
+            this.Controls.Add(this.lbl_tor);
             this.Controls.Add(this.llbl);
             this.Controls.Add(this.chb_snowflake);
             this.Controls.Add(this.txt_log);
@@ -162,6 +175,7 @@ namespace TorHelper
         private System.Windows.Forms.TextBox txt_log;
         private System.Windows.Forms.CheckBox chb_snowflake;
         private System.Windows.Forms.LinkLabel llbl;
+        private System.Windows.Forms.LinkLabel lbl_tor;
     }
 }
 

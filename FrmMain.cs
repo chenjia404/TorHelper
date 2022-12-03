@@ -199,5 +199,10 @@ namespace TorHelper
         {
             System.Diagnostics.Process.Start("https://github.com/chenjia404/TorHelper");
         }
+
+        private void lbl_tor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.torproject.org/download/tor/");
+        }
     }
 }
