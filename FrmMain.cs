@@ -147,7 +147,21 @@ namespace TorHelper
 
         private void Btn_stop_Click(object sender, EventArgs e)
         {
-            process_tor.Kill();
+            try
+            {
+                process_tor.Kill();
+            }catch(NullReferenceException ex)
+            {
+                MessageBox.Show("程序还没有启动，不能停止");
+            }
+            catch(InvalidOperationException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
