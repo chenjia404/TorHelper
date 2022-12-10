@@ -75,7 +75,8 @@ namespace TorHelper
             this.cmb_network_type.FormattingEnabled = true;
             this.cmb_network_type.Items.AddRange(new object[] {
             "直连",
-            "snowflake"});
+            "snowflake",
+            "meek"});
             this.cmb_network_type.Location = new System.Drawing.Point(84, 21);
             this.cmb_network_type.Name = "cmb_network_type";
             this.cmb_network_type.Size = new System.Drawing.Size(121, 21);
