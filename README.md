@@ -1,32 +1,34 @@
-## 简易的 tor gui助手
+## Easy tor gui helper
 
-实现基础的 tor 配置：连接方式、本地代理端口、启动、关闭。
-
-目录说明
-
-tor tor主程序
-
-tor/PluggableTransports  snowflake-client插件
-
-data tor数据目录
+[中文](README-zh.md)
 
 
-tor 下载链接：https://www.torproject.org/download/tor/
+Implement basic tor configuration: connection method, local proxy port, startup, shutdown.
 
-snowflake-client.exe 来自tor浏览器
+Catalog description
 
-tor/proxy.exe 来自 https://git.torproject.org/pluggable-transports/snowflake.git ，是 snowflake 中继。
+tor tor main program
+
+tor/PluggableTransports  snowflake-client
+
+data tor data directory
 
 
-![界面预览](gui.png)
+tor ：https://www.torproject.org/download/tor/
 
-chrome浏览器推荐使用[Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif) 针对不同网站使用不用的代理策略。
+
+tor/proxy.exe form https://git.torproject.org/pluggable-transports/snowflake.git
+
+
+![interface preview](gui.png)
+
+Chrome browser is recommended [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif) Use different proxy strategies for different websites.
 
 
 ## todo
 
-更新tor
+update tor
 
-设置全局代理
+Set global proxy
 
-设置pac代理
+set pac proxy
