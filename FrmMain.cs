@@ -6,7 +6,9 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -166,12 +168,32 @@ namespace TorHelper
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            tssl_version.Text = "版本号:" + Assembly.GetExecutingAssembly().GetName().Version.ToString();
             LoadConfig();
             cmb_network_type.SelectedIndex = 1;
             if (!File.Exists(@"tor\tor.exe"))
             {
                 txt_log.AppendText("没有找到tor程序，请去这里下载  https://www.torproject.org/download/tor/");
                 txt_log.AppendText(Environment.NewLine);
+            }
+            Thread th2 = new Thread(CheckGithubVersion);
+            th2.Start();
+        }
+
+        private void CheckGithubVersion()
+        {
+            string api_url = "https://api.github.com/repos/chenjia404/TorHelper/releases/latest";
+            string github_str = Util.Util.GetWebContent(api_url);
+            var json = (IDictionary<string, object>)SimpleJson.SimpleJson.DeserializeObject(github_str);
+            AddItemToTextBox("GitHub最新版本:"+json["tag_name"].ToString());
+
+            Version github_version = Version.Parse(json["tag_name"].ToString().Replace("v",""));
+
+            if(github_version.CompareTo(Assembly.GetExecutingAssembly().GetName().Version) > 0)
+            {
+                var assets = SimpleJson.SimpleJson.DeserializeObject<SimpleJson.JsonArray>(json["assets"].ToString());
+                var asset = SimpleJson.SimpleJson.DeserializeObject<SimpleJson.JsonObject>(assets[0].ToString());
+                AddItemToTextBox("下载链接:" + asset["browser_download_url"].ToString());
             }
         }
 

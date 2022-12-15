@@ -29,6 +29,7 @@ namespace TorHelper
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btn_start = new System.Windows.Forms.Button();
             this.btn_stop = new System.Windows.Forms.Button();
             this.lbl_network_type = new System.Windows.Forms.Label();
@@ -39,13 +40,18 @@ namespace TorHelper
             this.chb_snowflake = new System.Windows.Forms.CheckBox();
             this.llbl = new System.Windows.Forms.LinkLabel();
             this.lbl_tor = new System.Windows.Forms.LinkLabel();
+            this.timer_updater = new System.Windows.Forms.Timer(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tssl_version = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_start
             // 
-            this.btn_start.Location = new System.Drawing.Point(55, 283);
+            this.btn_start.Location = new System.Drawing.Point(110, 544);
+            this.btn_start.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btn_start.Name = "btn_start";
-            this.btn_start.Size = new System.Drawing.Size(75, 23);
+            this.btn_start.Size = new System.Drawing.Size(150, 44);
             this.btn_start.TabIndex = 0;
             this.btn_start.Text = "启动";
             this.btn_start.UseVisualStyleBackColor = true;
@@ -53,9 +59,10 @@ namespace TorHelper
             // 
             // btn_stop
             // 
-            this.btn_stop.Location = new System.Drawing.Point(185, 283);
+            this.btn_stop.Location = new System.Drawing.Point(370, 544);
+            this.btn_stop.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btn_stop.Name = "btn_stop";
-            this.btn_stop.Size = new System.Drawing.Size(75, 23);
+            this.btn_stop.Size = new System.Drawing.Size(150, 44);
             this.btn_stop.TabIndex = 0;
             this.btn_stop.Text = "停止";
             this.btn_stop.UseVisualStyleBackColor = true;
@@ -64,9 +71,10 @@ namespace TorHelper
             // lbl_network_type
             // 
             this.lbl_network_type.AutoSize = true;
-            this.lbl_network_type.Location = new System.Drawing.Point(23, 24);
+            this.lbl_network_type.Location = new System.Drawing.Point(46, 46);
+            this.lbl_network_type.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_network_type.Name = "lbl_network_type";
-            this.lbl_network_type.Size = new System.Drawing.Size(58, 13);
+            this.lbl_network_type.Size = new System.Drawing.Size(102, 25);
             this.lbl_network_type.TabIndex = 1;
             this.lbl_network_type.Text = "连接方式:";
             // 
@@ -77,44 +85,49 @@ namespace TorHelper
             "直连",
             "snowflake",
             "meek"});
-            this.cmb_network_type.Location = new System.Drawing.Point(84, 21);
+            this.cmb_network_type.Location = new System.Drawing.Point(168, 40);
+            this.cmb_network_type.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cmb_network_type.Name = "cmb_network_type";
-            this.cmb_network_type.Size = new System.Drawing.Size(121, 21);
+            this.cmb_network_type.Size = new System.Drawing.Size(238, 33);
             this.cmb_network_type.TabIndex = 2;
             this.cmb_network_type.SelectedIndexChanged += new System.EventHandler(this.Cmb_network_type_SelectedIndexChanged);
             // 
             // lbl_port
             // 
             this.lbl_port.AutoSize = true;
-            this.lbl_port.Location = new System.Drawing.Point(22, 71);
+            this.lbl_port.Location = new System.Drawing.Point(44, 137);
+            this.lbl_port.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_port.Name = "lbl_port";
-            this.lbl_port.Size = new System.Drawing.Size(58, 13);
+            this.lbl_port.Size = new System.Drawing.Size(102, 25);
             this.lbl_port.TabIndex = 3;
             this.lbl_port.Text = "代理端口:";
             // 
             // txt_port
             // 
-            this.txt_port.Location = new System.Drawing.Point(86, 68);
+            this.txt_port.Location = new System.Drawing.Point(172, 131);
+            this.txt_port.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txt_port.Name = "txt_port";
-            this.txt_port.Size = new System.Drawing.Size(100, 20);
+            this.txt_port.Size = new System.Drawing.Size(196, 31);
             this.txt_port.TabIndex = 4;
             this.txt_port.Text = "9050";
             this.txt_port.TextChanged += new System.EventHandler(this.Txt_port_TextChanged);
             // 
             // txt_log
             // 
-            this.txt_log.Location = new System.Drawing.Point(25, 135);
+            this.txt_log.Location = new System.Drawing.Point(50, 260);
+            this.txt_log.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txt_log.Multiline = true;
             this.txt_log.Name = "txt_log";
-            this.txt_log.Size = new System.Drawing.Size(280, 130);
+            this.txt_log.Size = new System.Drawing.Size(556, 246);
             this.txt_log.TabIndex = 5;
             // 
             // chb_snowflake
             // 
             this.chb_snowflake.AutoSize = true;
-            this.chb_snowflake.Location = new System.Drawing.Point(26, 104);
+            this.chb_snowflake.Location = new System.Drawing.Point(52, 200);
+            this.chb_snowflake.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.chb_snowflake.Name = "chb_snowflake";
-            this.chb_snowflake.Size = new System.Drawing.Size(122, 17);
+            this.chb_snowflake.Size = new System.Drawing.Size(224, 29);
             this.chb_snowflake.TabIndex = 6;
             this.chb_snowflake.Text = "运行snowflake网桥";
             this.chb_snowflake.UseVisualStyleBackColor = true;
@@ -123,9 +136,10 @@ namespace TorHelper
             // llbl
             // 
             this.llbl.AutoSize = true;
-            this.llbl.Location = new System.Drawing.Point(26, 319);
+            this.llbl.Location = new System.Drawing.Point(52, 613);
+            this.llbl.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.llbl.Name = "llbl";
-            this.llbl.Size = new System.Drawing.Size(31, 13);
+            this.llbl.Size = new System.Drawing.Size(54, 25);
             this.llbl.TabIndex = 7;
             this.llbl.TabStop = true;
             this.llbl.Text = "主页";
@@ -134,19 +148,43 @@ namespace TorHelper
             // lbl_tor
             // 
             this.lbl_tor.AutoSize = true;
-            this.lbl_tor.Location = new System.Drawing.Point(81, 319);
+            this.lbl_tor.Location = new System.Drawing.Point(162, 613);
+            this.lbl_tor.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_tor.Name = "lbl_tor";
-            this.lbl_tor.Size = new System.Drawing.Size(19, 13);
+            this.lbl_tor.Size = new System.Drawing.Size(37, 25);
             this.lbl_tor.TabIndex = 7;
             this.lbl_tor.TabStop = true;
             this.lbl_tor.Text = "tor";
             this.lbl_tor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbl_tor_LinkClicked);
             // 
+            // timer_updater
+            // 
+            this.timer_updater.Enabled = true;
+            this.timer_updater.Interval = 600000;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tssl_version});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 651);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(690, 41);
+            this.statusStrip1.TabIndex = 8;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // tssl_version
+            // 
+            this.tssl_version.Name = "tssl_version";
+            this.tssl_version.Size = new System.Drawing.Size(92, 31);
+            this.tssl_version.Text = "版本号:";
+            // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(345, 344);
+            this.ClientSize = new System.Drawing.Size(690, 692);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.lbl_tor);
             this.Controls.Add(this.llbl);
             this.Controls.Add(this.chb_snowflake);
@@ -157,9 +195,12 @@ namespace TorHelper
             this.Controls.Add(this.lbl_network_type);
             this.Controls.Add(this.btn_stop);
             this.Controls.Add(this.btn_start);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "FrmMain";
             this.Text = "tor助手";
             this.Load += new System.EventHandler(this.FrmMain_Load);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,6 +218,9 @@ namespace TorHelper
         private System.Windows.Forms.CheckBox chb_snowflake;
         private System.Windows.Forms.LinkLabel llbl;
         private System.Windows.Forms.LinkLabel lbl_tor;
+        private System.Windows.Forms.Timer timer_updater;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel tssl_version;
     }
 }
 

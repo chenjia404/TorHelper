@@ -27,6 +27,8 @@ Chrome browser is recommended [Proxy SwitchyOmega](https://chrome.google.com/web
 
 ## todo
 
+update from github
+
 update tor
 
 Set global proxy
