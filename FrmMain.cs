@@ -249,5 +249,12 @@ namespace TorHelper
         {
             System.Diagnostics.Process.Start("https://www.torproject.org/download/tor/");
         }
+
+        private void btc_check_Click(object sender, EventArgs e)
+        {
+            Environment.SetEnvironmentVariable("WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS", "--proxy-server=\"socks5://127.0.0.1:"+ txt_port.Text + "\"");
+            FrmBrowser f = new FrmBrowser();
+            f.ShowDialog();
+        }
     }
 }
