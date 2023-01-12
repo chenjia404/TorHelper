@@ -151,6 +151,7 @@ namespace TorHelper
         {
             try
             {
+                Environment.SetEnvironmentVariable("WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS", "");
                 process_tor.Kill();
             }catch(NullReferenceException ex)
             {
@@ -254,7 +255,7 @@ namespace TorHelper
         {
             Environment.SetEnvironmentVariable("WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS", "--proxy-server=\"socks5://127.0.0.1:"+ txt_port.Text + "\"");
             FrmBrowser f = new FrmBrowser();
-            f.ShowDialog();
+            f.Show();
         }
     }
 }
