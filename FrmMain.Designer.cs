@@ -44,6 +44,7 @@ namespace TorHelper
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tssl_version = new System.Windows.Forms.ToolStripStatusLabel();
             this.btc_check = new System.Windows.Forms.Button();
+            this.lbl_gettorbrowser = new System.Windows.Forms.LinkLabel();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -181,12 +182,24 @@ namespace TorHelper
             this.btc_check.UseVisualStyleBackColor = true;
             this.btc_check.Click += new System.EventHandler(this.btc_check_Click);
             // 
+            // lbl_gettorbrowser
+            // 
+            this.lbl_gettorbrowser.AutoSize = true;
+            this.lbl_gettorbrowser.Location = new System.Drawing.Point(129, 347);
+            this.lbl_gettorbrowser.Name = "lbl_gettorbrowser";
+            this.lbl_gettorbrowser.Size = new System.Drawing.Size(55, 13);
+            this.lbl_gettorbrowser.TabIndex = 7;
+            this.lbl_gettorbrowser.TabStop = true;
+            this.lbl_gettorbrowser.Text = "tor浏览器";
+            this.lbl_gettorbrowser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbl_gettorbrowser_LinkClicked);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(345, 395);
             this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.lbl_gettorbrowser);
             this.Controls.Add(this.lbl_tor);
             this.Controls.Add(this.llbl);
             this.Controls.Add(this.chb_snowflake);
@@ -224,6 +237,7 @@ namespace TorHelper
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tssl_version;
         private System.Windows.Forms.Button btc_check;
+        private System.Windows.Forms.LinkLabel lbl_gettorbrowser;
     }
 }
 

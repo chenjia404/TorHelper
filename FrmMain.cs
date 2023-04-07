@@ -257,5 +257,10 @@ namespace TorHelper
             FrmBrowser f = new FrmBrowser();
             f.Show();
         }
+
+        private void lbl_gettorbrowser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/TheTorProject/gettorbrowser/releases");
+        }
     }
 }
