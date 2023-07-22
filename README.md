@@ -17,7 +17,9 @@ data tor data directory
 tor ：https://www.torproject.org/download/tor/
 
 
-tor/proxy.exe form https://git.torproject.org/pluggable-transports/snowflake.git
+tor/proxy.exe form https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake
+
+tor/PluggableTransports/snowflake-client.exe form https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake
 
 
 ![interface preview](gui.png)
